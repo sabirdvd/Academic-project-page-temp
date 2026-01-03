@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Project Title | Research Website Template</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css" />
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../js/hidebib.js"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    body {
+      font-size: 19px;
+      font-family: 'Lato', sans-serif;
+      background: #f8fafc;
+      color: #1f2a37;
+      line-height: 1.65;
+    }
+
+    .container {
+      margin-bottom: 35px;
+    }
+
+    .hero {
+      margin-top: 30px;
+      padding: 45px 30px;
+      border-radius: 16px;
+      background: linear-gradient(120deg, #0f4c81, #2575c4);
+      color: #fff;
+      text-align: center;
+      box-shadow: 0 12px 30px rgba(15, 76, 129, 0.25);
+      position: relative;
+    }
+
+    .hero a { color: #fff; text-decoration: underline; }
+
+    .figure-wrap {
+      width: 100%;
+      margin: 18px auto;
+    }
+
+    .responsive-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      background: #fff;
+      padding: 6px;
+    }
+
+    .link-grid {
+      max-width: 680px;
+      margin: 18px auto 35px;
+      padding: 15px;
+      border-radius: 14px;
+      background: #fff;
+      box-shadow: 0 8px 18px rgba(31, 42, 55, 0.08);
+    }
+
+    .link-grid .link-item {
+      margin-bottom: 12px;
+    }
+
+    .link-grid a {
+      display: block;
+      text-decoration: none;
+      padding: 12px 6px;
+      border-radius: 12px;
+      font-weight: 600;
+      color: #0f4c81;
+      border: 1px solid rgba(37, 117, 196, 0.25);
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .link-grid a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 18px rgba(15, 76, 129, 0.15);
+    }
+
+    .link-grid svg {
+      width: 38px;
+      height: 38px;
+      display: block;
+      margin: 0 auto 5px;
+    }
+
+    .section-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 16px 22px;
+      margin-bottom: 18px;
+      box-shadow: 0 10px 30px rgba(31, 42, 55, 0.08);
+    }
+
+    .figure-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 16px 22px;
+      box-shadow: 0 10px 30px rgba(31, 42, 55, 0.08);
+    }
+
+    .note-box {
+      border-left: 5px solid #2575c4;
+      background: #edf4ff;
+    }
+
+    .note-danger {
+      border-left: 5px solid #d9534f;
+      background: #ffeceb;
+    }
+
+    .table-latex {
+      width: 854px;
+      max-width: 100%;
+      border-collapse: collapse;
+      margin: 15px auto;
+      font-size: 16px;
+    }
+
+    .table-latex.table-wide {
+      width: 1151px;
+    }
+
+    .table-latex th,
+    .table-latex td {
+      border: none;
+      padding: 6px 10px;
+      text-align: center;
+    }
+
+    .table-latex th:first-child,
+    .table-latex td:first-child {
+      text-align: left;
+    }
+
+    .table-latex thead tr:first-child th {
+      border-bottom: 2px solid #000;
+    }
+
+    .table-latex thead tr:nth-child(2) th {
+      border-bottom: 1px solid #000;
+    }
+
+    .table-latex tbody tr {
+      border-bottom: 1px solid #bbb;
+    }
+
+    .table-latex tbody tr:last-child {
+      border-bottom: 2px solid #000;
+    }
+
+    .table-latex td strong {
+      font-weight: 700;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      z-index: 2;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 76, 129, 0.35);
+      background: rgba(255, 255, 255, 0.9);
+      color: #0f4c81;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .theme-icon {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .icon-sun { display: none; }
+    .icon-moon { display: inline-block; }
+
+    body.theme-dark {
+      background: #0f141b;
+      color: #e6edf5;
+    }
+
+    body.theme-dark .theme-toggle {
+      background: rgba(20, 27, 36, 0.9);
+      color: #e6edf5;
+      border-color: rgba(230, 237, 245, 0.3);
+    }
+
+    body.theme-dark .icon-sun { display: inline-block; }
+    body.theme-dark .icon-moon { display: none; }
+
+    body.theme-dark .hero {
+      background: linear-gradient(120deg, #0b2336, #123b5c);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+    }
+
+    body.theme-dark .hero a { color: #e6edf5; }
+
+    body.theme-dark .link-grid,
+    body.theme-dark .section-card,
+    body.theme-dark .figure-card {
+      background: #141b24;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    body.theme-dark .link-grid a {
+      color: #cfe3f7;
+      border-color: rgba(207, 227, 247, 0.25);
+    }
+
+    body.theme-dark .note-box {
+      border-left-color: #5aa1dd;
+      background: #1b2a36;
+    }
+
+    body.theme-dark .note-danger {
+      border-left-color: #e07a73;
+      background: #2a1b1c;
+    }
+
+    body.theme-dark .responsive-img {
+      background: #10161e;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    }
+
+    body.theme-dark .table-latex thead tr:first-child th,
+    body.theme-dark .table-latex thead tr:nth-child(2) th {
+      border-bottom-color: #cbd5e1;
+    }
+
+    body.theme-dark .table-latex tbody tr {
+      border-bottom-color: rgba(203, 213, 225, 0.4);
+    }
+
+    body.theme-dark .containersmall {
+      background-color: #141b24 !important;
+      color: #e6edf5;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="container hero">
+    <button class="theme-toggle" type="button" id="themeToggle" aria-label="Switch to dark mode">
+      <svg class="theme-icon icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"></path>
+      </svg>
+      <svg class="theme-icon icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+    </button>
+    <h1>Project Title: Subtitle Goes Here</h1>
+    <p style="font-size: 20px;">
+      <a href="#">Author One<sup>1</sup></a>,
+      <a href="#">Author Two<sup>2</sup></a>,
+      <a href="#">Author Three<sup>1,3</sup></a>
+    </p>
+    <p style="font-size: 18px;">
+      <sup>1</sup> Department, University A<br />
+      <sup>2</sup> Lab or Institute B<br />
+      <sup>3</sup> Company or Center C
+    </p>
+  </div>
+
+  <div class="container link-grid text-center">
+    <div class="row">
+      <div class="col-sm-4 col-xs-12 link-item">
+        <a href="#" title="Paper">
+          <svg viewBox="0 0 24 24">
+            <path fill="currentColor"
+              d="M16 0H8C6.9 0 6 .9 6 2V18C6 19.1 6.9 20 8 20H20C21.1 20 22 19.1 22 18V6L16 0M20 18H8V2H15V7H20V18M4 4V22H20V24H4C2.9 24 2 23.1 2 22V4H4M10 10V12H18V10H10M10 14V16H15V14H10Z" />
+          </svg>
+          Paper
+        </a>
+      </div>
+      <div class="col-sm-4 col-xs-12 link-item">
+        <a href="#" title="Code">
+          <svg viewBox="0 0 65 65">
+            <path fill="currentColor"
+              d="M32 0a32.021 32.021 0 0 0-10.1 62.4c1.6.3 2.2-.7 2.2-1.5v-6c-8.9 1.9-10.8-3.8-10.8-3.8-1.5-3.7-3.6-4.7-3.6-4.7-2.9-2 .2-1.9.2-1.9 3.2.2 4.9 3.3 4.9 3.3 2.9 4.9 7.5 3.5 9.3 2.7a6.93 6.93 0 0 1 2-4.3c-7.1-.8-14.6-3.6-14.6-15.8a12.27 12.27 0 0 1 3.3-8.6 11.965 11.965 0 0 1 .3-8.5s2.7-.9 8.8 3.3a30.873 30.873 0 0 1 8-1.1 30.292 30.292 0 0 1 8 1.1c6.1-4.1 8.8-3.3 8.8-3.3a11.965 11.965 0 0 1 .3 8.5 12.1 12.1 0 0 1 3.3 8.6c0 12.3-7.5 15-14.6 15.8a7.746 7.746 0 0 1 2.2 5.9v8.8c0 .9.6 1.8 2.2 1.5A32.021 32.021 0 0 0 32 0z" />
+          </svg>
+          Code
+        </a>
+      </div>
+      <div class="col-sm-4 col-xs-12 link-item">
+        <a href="#" title="Data">
+          <svg viewBox="0 0 24 24">
+            <path fill="currentColor"
+              d="M21,16.5C21,16.88 20.79,17.21 20.47,17.38L12.57,21.82C12.41,21.94 12.21,22 12,22C11.79,22 11.59,21.94 11.43,21.82L3.53,17.38C3.21,17.21 3,16.88 3,16.5V7.5C3,7.12 3.21,6.79 3.53,6.62L11.43,2.18C11.59,2.06 11.79,2 12,2C12.21,2 12.41,2.06 12.57,2.18L20.47,6.62C20.79,6.79 21,7.12 21,7.5V16.5M12,4.15L6.04,7.5L12,10.85L17.96,7.5L12,4.15M5,15.91L11,19.29V12.58L5,9.21V15.91M19,15.91V9.21L13,12.58V19.29L19,15.91Z" />
+          </svg>
+          Data
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2 style="text-align: center;">Abstract</h2>
+    <div class="section-card">
+      <p align="justify">
+        Write a concise abstract that explains the problem, your approach, and the key results.
+        Keep this to 4–6 sentences with concrete outcomes and a clear contribution.
+      </p>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2 style="text-align: center;">Key Metric or Definition</h2>
+    <div class="section-card">
+      <p>
+    
+Define the key metric, task formulation, or theoretical result here.
+Keep this text short and precise so readers can immediately grasp the setup.
+      </p>
+    </div>
+    <div style="text-align: center; margin-bottom: 10px;">
+      <p>
+        $$ \text{Metric} = \frac{1}{N} \sum_{i=1}^{N} \mathcal{L}(y_i, \hat{y}_i) $$
+      </p>
+      <p>
+        $$ \mathcal{L}(y, \hat{y}) = \left| y - \hat{y} \right| \quad \text{or another task-appropriate loss} $$
+      </p>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2 style="text-align: center;">Experiment: Dataset A</h2>
+    <div class="section-card">
+      <p>
+        Describe Dataset A, the evaluation protocol, and what this experiment measures.
+        Provide a short sentence on the data split and the task.
+      </p>
+    </div>
+
+ <div class="table-responsive">
+      <table class="table-latex">
+        <thead>
+          <tr>
+            <th rowspan="2">Model</th>
+            <th colspan="4">Standard Metrics</th>
+            <th colspan="3">Group Metrics</th>
+            <th rowspan="2">Human</th>
+          </tr>
+          <tr>
+            <th>Metric 1</th>
+            <th>Metric 2</th>
+            <th>Metric 3</th>
+            <th>Metric 4</th>
+            <th>Group</th>
+            <th>A</th>
+            <th>B</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Model A</td>
+            <td>0.076</td>
+            <td>0.453</td>
+            <td>0.374</td>
+            <td>0.432</td>
+            <td>0.076</td>
+            <td>0.085</td>
+            <td>0.066</td>
+            <td>0.715</td>
+          </tr>
+          <tr>
+            <td>Model B</td>
+            <td>0.111</td>
+            <td>0.466</td>
+            <td>0.371</td>
+            <td>0.446</td>
+            <td>0.111</td>
+            <td>0.112</td>
+            <td>0.109</td>
+            <td><strong>0.727</strong></td>
+          </tr>
+          <tr>
+            <td>Model C</td>
+            <td><strong>0.327</strong></td>
+            <td><strong>0.493</strong></td>
+            <td>0.390</td>
+            <td><strong>0.559</strong></td>
+            <td><strong>0.267</strong></td>
+            <td><strong>0.330</strong></td>
+            <td>0.204</td>
+            <td>0.617</td>
+          </tr>
+          <tr>
+            <td>Model D</td>
+            <td>0.106</td>
+            <td>0.476</td>
+            <td>0.422</td>
+            <td>0.385</td>
+            <td>0.107</td>
+            <td>0.052</td>
+            <td>0.162</td>
+            <td>0.637</td>
+          </tr>
+          <tr>
+            <td>Model E</td>
+            <td>0.161</td>
+            <td>0.491</td>
+            <td><strong>0.449</strong></td>
+            <td>0.356</td>
+            <td>0.149</td>
+            <td>0.081</td>
+            <td><strong>0.217</strong></td>
+            <td>0.605</td>
+          </tr>
+          <tr>
+            <td>Model F</td>
+            <td>0.085</td>
+            <td>0.461</td>
+            <td>0.369</td>
+            <td>0.470</td>
+            <td>0.090</td>
+            <td>0.074</td>
+            <td>0.106</td>
+            <td>0.686</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="figure-wrap figure-card">
+      <img src="figure_1.png" class="responsive-img" alt="Figure 1 caption goes here" />
+    </div>
+    <div class="section-card note-danger" style="margin: 10px auto; max-width: 900px;">
+      <p style="margin: 0;">
+        <strong>Finding:</strong> Summarize the most important result from Dataset A in one sentence.
+      </p>
+    </div>
+    <!-- <p align="center">
+      <img src="Example.png" class="responsive-img" width="850" alt="Examples of gender bias predictions" />
+    </p> -->
+  </div>
+
+  <div class="container">
+    <h2 style="text-align: center;">Experiment: Dataset B</h2>
+    <div class="section-card">
+      <p>
+        Describe Dataset B and the evaluation metric used for this experiment.
+      </p>
+    </div>
+    <div class="table-wrapper">
+      <table class="table-latex">
+        <thead>
+          <tr>
+            <th rowspan="2">Model</th>
+            <th colspan="4">Standard Metrics</th>
+            <th colspan="3">Group Metrics</th>
+            <th rowspan="2">Human</th>
+          </tr>
+          <tr>
+            <th>Metric 1</th>
+            <th>Metric 2</th>
+            <th>Metric 3</th>
+            <th>Metric 4</th>
+            <th>Group</th>
+            <th>A</th>
+            <th>B</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Model A</td>
+            <td>0.157</td>
+            <td>0.444</td>
+            <td>0.356</td>
+            <td>0.481</td>
+            <td>0.164</td>
+            <td>0.150</td>
+            <td>0.179</td>
+            <td>0.686</td>
+          </tr>
+          <tr>
+            <td>Model B</td>
+            <td>0.193</td>
+            <td>0.460</td>
+            <td>0.377</td>
+            <td>0.460</td>
+            <td>0.214</td>
+            <td>0.179</td>
+              <td><strong>0.249</strong></td>
+              <td>0.662</td>
+            </tr>
+            <tr>
+              <td>Model C</td>
+            <td><strong>0.429</strong></td>
+            <td><strong>0.490</strong></td>
+            <td><strong>0.482</strong></td>
+            <td>0.467</td>
+            <td><strong>0.297</strong></td>
+            <td><strong>0.438</strong></td>
+            <td>0.156</td>
+            <td>0.509</td>
+          </tr>
+          <tr>
+            <td>Model D</td>
+            <td>0.234</td>
+            <td>0.442</td>
+            <td>0.362</td>
+            <td><strong>0.510</strong></td>
+            <td>0.190</td>
+            <td>0.259</td>
+            <td>0.121</td>
+            <td>0.630</td>
+          </tr>
+          <tr>
+            <td>Model E</td>
+            <td>0.154</td>
+            <td>0.452</td>
+            <td>0.357</td>
+            <td>0.487</td>
+            <td>0.149</td>
+            <td>0.160</td>
+            <td>0.138</td>
+            <td>0.684</td>
+          </tr>
+          <tr>
+            <td>Model F</td>
+            <td>0.240</td>
+            <td>0.478</td>
+            <td>0.382</td>
+            <td>0.496</td>
+            <td>0.218</td>
+            <td>0.255</td>
+              <td>0.182</td>
+              <td>0.648</td>
+            </tr>
+          </tbody>
+      </table>
+    </div>
+    <div class="figure-wrap figure-card">
+      <img src="figure_2.png" class="responsive-img" alt="Figure 2 caption goes here" />
+    </div>
+    <div class="section-card note-danger" style="margin: 10px auto; max-width: 900px;">
+      <p>
+        <strong>Finding:</strong> Summarize the most important result from Dataset B in one sentence.
+      </p>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2 style="text-align: center;">Experiment: Dataset C</h2>
+    <div class="section-card">
+      <p>
+        Describe Dataset C and any experimental variants or conditions.
+      </p>
+    </div>
+    <div class="table-wrapper">
+      <table class="table-latex table-wide">
+        <thead>
+          <tr>
+            <th rowspan="2">Metric</th>
+            <th colspan="3">Model A</th>
+            <th colspan="3">Model B</th>
+            <th colspan="3">Model C</th>
+            <th colspan="3">Model D</th>
+          </tr>
+          <tr>
+            <th>Cond 1</th>
+            <th>Cond 2</th>
+            <th>Cond 3</th>
+            <th>Cond 1</th>
+            <th>Cond 2</th>
+            <th>Cond 3</th>
+            <th>Cond 1</th>
+            <th>Cond 2</th>
+            <th>Cond 3</th>
+            <th>Cond 1</th>
+            <th>Cond 2</th>
+            <th>Cond 3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ECE</td>
+            <td><strong>0.144</strong></td>
+            <td>0.063</td>
+            <td>0.076</td>
+            <td>0.134</td>
+            <td><strong>0.138</strong></td>
+            <td>0.111</td>
+            <td><strong>0.139</strong></td>
+            <td>0.130</td>
+            <td>0.085</td>
+            <td>0.364</td>
+            <td><strong>0.367</strong></td>
+            <td>0.327</td>
+          </tr>
+          <tr>
+            <td>MacroCE</td>
+            <td><strong>0.484</strong></td>
+            <td>0.476</td>
+            <td>0.453</td>
+            <td><strong>0.483</strong></td>
+            <td>0.478</td>
+            <td>0.466</td>
+            <td><strong>0.482</strong></td>
+            <td>0.481</td>
+            <td>0.461</td>
+            <td>0.493</td>
+            <td>0.493</td>
+            <td><strong>0.494</strong></td>
+          </tr>
+          <tr>
+            <td>ICE</td>
+            <td><strong>0.454</strong></td>
+            <td>0.442</td>
+            <td>0.374</td>
+            <td>0.436</td>
+            <td><strong>0.445</strong></td>
+            <td>0.371</td>
+            <td><strong>0.452</strong></td>
+            <td>0.443</td>
+            <td>0.369</td>
+            <td><strong>0.397</strong></td>
+            <td>0.393</td>
+            <td>0.390</td>
+          </tr>
+          <tr>
+            <td>Brier Score</td>
+            <td>0.331</td>
+            <td>0.341</td>
+            <td><strong>0.432</strong></td>
+            <td>0.358</td>
+            <td>0.348</td>
+            <td><strong>0.446</strong></td>
+            <td>0.352</td>
+            <td>0.361</td>
+            <td><strong>0.470</strong></td>
+            <td>0.560</td>
+            <td><strong>0.581</strong></td>
+            <td>0.574</td>
+          </tr>
+          <tr>
+            <td>Group-ECE</td>
+            <td><strong>0.138</strong></td>
+            <td>0.077</td>
+            <td>0.076</td>
+            <td>0.132</td>
+            <td>0.111</td>
+            <td><strong>0.138</strong></td>
+            <td><strong>0.138</strong></td>
+            <td>0.137</td>
+            <td>0.097</td>
+            <td><strong>0.450</strong></td>
+            <td>0.351</td>
+            <td>0.267</td>
+          </tr>
+          <tr>
+            <td>+ Male</td>
+            <td><strong>0.106</strong></td>
+            <td>0.031</td>
+            <td>0.085</td>
+            <td><strong>0.115</strong></td>
+            <td>0.071</td>
+            <td>0.112</td>
+            <td>0.048</td>
+            <td>0.065</td>
+            <td><strong>0.074</strong></td>
+            <td>0.363</td>
+            <td><strong>0.367</strong></td>
+            <td>0.330</td>
+          </tr>
+          <tr>
+            <td>+ Female</td>
+            <td><strong>0.170</strong></td>
+            <td>0.122</td>
+            <td>0.066</td>
+            <td><strong>0.148</strong></td>
+            <td>0.109</td>
+            <td>0.109</td>
+            <td><strong>0.228</strong></td>
+            <td>0.210</td>
+            <td>0.216</td>
+            <td><strong>0.536</strong></td>
+            <td>0.335</td>
+            <td>0.204</td>
+          </tr>
+          <tr>
+            <td>Human alignment</td>
+            <td>0.598</td>
+            <td>0.616</td>
+            <td><strong>0.715</strong></td>
+            <td>0.638</td>
+            <td>0.598</td>
+            <td><strong>0.727</strong></td>
+            <td>0.578</td>
+            <td>0.596</td>
+            <td><strong>0.687</strong></td>
+            <td>0.603</td>
+            <td>0.606</td>
+            <td><strong>0.618</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="figure-wrap figure-card">
+      <img src="figure_3.png" class="responsive-img" alt="Figure 3 caption goes here" />
+    </div>
+    <div class="section-card note-danger" style="margin: 10px auto; max-width: 900px;">
+      <p>
+        <strong>Finding:</strong> Summarize the most important result from Dataset C in one sentence.
+      </p>
+    </div>
+  </div>
+
+  
+
+  <div class="container">
+    <h2 style="text-align: center;">Additional Analysis</h2>
+    <div class="section-card">
+      <p>
+        Use this section for supplementary analysis, ablations, or error analysis.
+        Keep it focused and link back to the main findings.
+      </p>
+    </div>
+    <div class="figure-wrap figure-card">
+      <img src="figure_4.png" class="responsive-img" alt="Figure 4 caption goes here" />
+    </div>
+  </div>
+
+  <div class="container">
+    <h3 style="text-align: center;">Acknowledgment</h3>
+    <div style="text-align: left; background-color: #ffffff; padding: 10px; border-radius: 5px;" class="containersmall">
+      <p>
+        List funding sources, grants, and institutional support. Keep this concise.
+      </p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="box" style="text-align: left;">
+      <div class="section-card">
+        <h3>Citation</h3>
+        <pre class="citation" style="white-space: pre-wrap; overflow-wrap: break-word; text-align: left; direction: ltr; margin: 0;">
+@misc{project2026title,
+  title = {Project Title},
+  author = {Author One and Author Two and Author Three},
+  note = {citation for the project},
+  year = {2026}
+}
+        </pre>
+      </div>
+    </div>
+    <div class="section-card">
+      <p>Contact: <a href="mailto:your-email@example.com">Your Name</a></p>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var button = document.getElementById('themeToggle');
+      if (!button) return;
+      button.addEventListener('click', function () {
+        var isDark = document.body.classList.toggle('theme-dark');
+        button.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+      });
+    })();
+  </script>
+</body>
+</html>
