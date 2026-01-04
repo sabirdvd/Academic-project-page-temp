@@ -1,7 +1,7 @@
 
 # Academic Project Page Template
 
-This folder includes a reusable academic project website template.  This is inspired by [nerfies](https://nerfies.github.io) and I gathered the resources for my personal use. And I'm happy to share it with anyone who wants to use something out-of-the-box, also includes dark-mode. 
+This folder contains a reusable academic project website template. It is inspired by [nerfies](https://nerfies.github.io), and I have gathered these resources for my personal use. I'm pleased to share it with anyone looking for an out-of-the-box solution, which also features a dark mode.
 
 ### Project Use Case Example
 
