@@ -21,5 +21,5 @@ This folder includes a reusable academic project website template.
 
 ## Notes
 
-- Images are referenced by filename; keep them in the same folder as the HTML.
-- The dark mode toggle is optional; remove the button and script if you do not need it.
+- Images are referenced by filename, keep them in the same folder as the HTML.
+- The dark mode toggle is optional, remove the button and script if you do not need it.
