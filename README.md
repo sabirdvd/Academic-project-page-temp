@@ -1,11 +1,11 @@
 
 # Academic Project Page Template
 
-This folder includes a reusable academic project website template.  I gathered the resources for my personal use. And I'm happy to share it with anyone who wants to use something out-of-the-box. 
+This folder includes a reusable academic project website template.  This is inspired by [nerfies](https://nerfies.github.io) and I gathered the resources for my personal use. And I'm happy to share it with anyone who wants to use something out-of-the-box, also includes dark-mode. 
 
 ### Project Use Case Example
 
-You can find an example of the use case for this project here: [AAA](https://ahmed.jp/project_page/cal_gece_2026/gece.html)
+You can find an example of the use case for this [project page](https://ahmed.jp/project_page/cal_gece_2026/gece.html)
 
 
 ## Template File
