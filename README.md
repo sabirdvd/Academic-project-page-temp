@@ -1,4 +1,4 @@
-# Research Website Template
+# Academic-project-page-temp
 
 This folder includes a reusable academic project website template.
 
