@@ -13,6 +13,7 @@ You can find an example of the use case for this [project page](https://ahmed.jp
 - `project_temp.html`: A clean starter page with placeholders for title, authors,
   figures, tables, and key results. It includes a light-by-default theme toggle.
 
+<!--
 ## Quick Start
 
 1. Copy the template:
@@ -24,11 +25,11 @@ You can find an example of the use case for this [project page](https://ahmed.jp
    - Rename metrics and model names to match your project.
    - Replace sample values with your results.
 4. Update citation and contact details.
-
+-->
 ## Notes
 
-- Images are referenced by filename; keep them in the same folder as the HTML.
-- The dark mode toggle is optional; remove the button and script if you do not need it.
+- Images are referenced by filename, keep them in the same folder as the HTML.
+- The dark mode toggle is optional, remove the button and script if you do not need it.
 
 
 
